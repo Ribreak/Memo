@@ -1,0 +1,48 @@
+.game-field {
+    padding-top: 5vh;
+}
+
+.game-field__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.game-field__timer {
+}
+
+.game-field__button-end {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 8px 20px;
+    color: #fff;
+    border: 3px solid #5d5c5c;
+    border-radius: 10px;
+    background: rgb(138,94,204);
+    background: linear-gradient(90deg, rgba(138,94,204,1) 0%, rgba(124,124,124,1) 100%);
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.game-field__button-end:hover {
+    box-shadow: 10px 5px 5px #7c7c7c50;
+}
+
+.game-field__button-end:active {
+    transform: scale(0.96);
+}
+
+.game-field__tile-grid {
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, auto);
+    gap: 20px;
+    perspective: 1200;
+    transform-style: preserve-3d;
+}
+
+.big-grid {
+    grid-template-columns: repeat(8, auto);
+}
