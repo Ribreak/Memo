@@ -1,8 +1,8 @@
 import {useState, useEffect, useCallback} from 'react';
 import Tile from './Tile.js'
 import Timer from './Timer.js'
-import "../styles/GameField.css"
 import ResultModal from './ResultModal';
+import "../styles/GameField.css"
 
 export default function GameField ({generatedTiles, onClickEnd}) {
     const [firstTile, setFirstTile] = useState(null);
@@ -15,7 +15,6 @@ export default function GameField ({generatedTiles, onClickEnd}) {
 
     useEffect(() => {
         if (flippedPairs === generatedTiles.length / 2) {
-            console.log("Win-win");
             setTimeStarted(false);
             setGameFinished(true);
         }
@@ -57,7 +56,6 @@ export default function GameField ({generatedTiles, onClickEnd}) {
     }, [firstTile, secondTile, tiles, flippedPairs])
 
     function setFlippedStatus (tileToFlip) {
-        console.log("Setting tile: ", tileToFlip);
         setTiles(tiles.map(tile => {
             if (tile.id === tileToFlip) {
                 return {
@@ -75,7 +73,12 @@ export default function GameField ({generatedTiles, onClickEnd}) {
 
     const tileList = tiles.map((tile) => {
         return (
-            <Tile key={tile.id} tileId={tile.id} image={tile.image} onClick={handleTileClick} status={tile.isFlipped ? "flipped" : "unflipped"} numberOfTiles={generatedTiles.length} />
+            <Tile key={tile.id}
+                tileId={tile.id} 
+                image={tile.image} 
+                onClick={handleTileClick} 
+                status={tile.isFlipped ? "flipped" : "unflipped"} 
+                numberOfTiles={generatedTiles.length} />
         );
     })
 
@@ -84,8 +87,8 @@ export default function GameField ({generatedTiles, onClickEnd}) {
             {gameFinished && <ResultModal onMenuButtonClick={onClickEnd} />}
             <div className="game-field">
                 <header className="game-field__header">
-                    <Timer className="game-field__timer" isRunning={timeStarted} />
-                    <button className='game-field__button-end' onClick={onClickEnd}>Выйти</button>
+                    <Timer isRunning={timeStarted} />
+                    <button className='game-field__button-end button' onClick={onClickEnd}>Выйти</button>
                 </header>
                 <div className={`game-field__tile-grid ${generatedTiles.length === 32 ? "big-grid" : ""}`}>{tileList}</div>
             </div>

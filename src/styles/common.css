@@ -1,0 +1,18 @@
+.button {
+    font-weight: 700;
+    color: #fff;
+    border: 3px solid #5d5c5c;
+    border-radius: 10px;
+    background: rgb(138,94,204);
+    background: linear-gradient(90deg, rgba(138,94,204,1) 0%, rgba(124,124,124,1) 100%);
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.button:hover {
+    box-shadow: 10px 5px 5px #7c7c7c50;
+}
+
+.button:active {
+    transform: scale(0.96);
+}

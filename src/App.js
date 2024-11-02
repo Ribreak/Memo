@@ -30,9 +30,11 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {gameStatus.started ? <GameField generatedTiles={gameStatus.tileList} onClickEnd={handleGameStatus}></GameField> : 
-      <Menu onClickStart={handleGameStatus} checkedOption={checkedOption} onRadioChange={handleRadioChange}></Menu>}
+    <div className="app">
+      {gameStatus.started ? 
+        <GameField generatedTiles={gameStatus.tileList} onClickEnd={handleGameStatus}></GameField> 
+        : 
+        <Menu onClickStart={handleGameStatus} checkedOption={checkedOption} onRadioChange={handleRadioChange}></Menu>}
     </div>
   );
 }
